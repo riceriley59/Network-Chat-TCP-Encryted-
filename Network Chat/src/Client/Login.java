@@ -1,9 +1,5 @@
 package Client;
 
-
-
-//this updates and it works you know what im saying
-
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
