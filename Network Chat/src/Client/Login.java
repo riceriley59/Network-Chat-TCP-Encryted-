@@ -32,7 +32,7 @@ public class Login extends JFrame {
 			e1.printStackTrace();
 		}
 		setResizable(false);
-		setTitle("Login");
+		setTitle("Network Chat - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(300, 380);
 		setLocationRelativeTo(null);
@@ -42,38 +42,38 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 
 		txtName = new JTextField();
-		txtName.setBounds(67, 50, 165, 28);
+		txtName.setBounds(64, 50, 165, 16);
 		contentPane.add(txtName);
 		txtName.setColumns(10);
 
 		JLabel lblName = new JLabel("Name:");
-		lblName.setBounds(127, 34, 45, 16);
+		lblName.setBounds(130, 34, 48, 16);
 		contentPane.add(lblName);
 
 		txtAddress = new JTextField();
-		txtAddress.setBounds(67, 116, 165, 28);
+		txtAddress.setBounds(64, 104, 165, 16);
 		contentPane.add(txtAddress);
 		txtAddress.setColumns(10);
 
 		lblIpAddress = new JLabel("IP Address:");
-		lblIpAddress.setBounds(111, 96, 77, 16);
+		lblIpAddress.setBounds(116, 77, 62, 16);
 		contentPane.add(lblIpAddress);
 
 		txtPort = new JTextField();
 		txtPort.setColumns(10);
-		txtPort.setBounds(67, 191, 165, 28);
+		txtPort.setBounds(64, 176, 165, 16);
 		contentPane.add(txtPort);
 
 		lblPort = new JLabel("Port:");
-		lblPort.setBounds(133, 171, 34, 16);
+		lblPort.setBounds(135, 149, 43, 16);
 		contentPane.add(lblPort);
 
 		lblAddressDesc = new JLabel("(eg. 192.168.0.2)");
-		lblAddressDesc.setBounds(94, 142, 112, 16);
+		lblAddressDesc.setBounds(103, 123, 103, 16);
 		contentPane.add(lblAddressDesc);
 
 		lblPortDesc = new JLabel("(eg. 8192)");
-		lblPortDesc.setBounds(116, 218, 68, 16);
+		lblPortDesc.setBounds(121, 193, 57, 16);
 		contentPane.add(lblPortDesc);
 
 		JButton btnLogin = new JButton("Login");
@@ -85,13 +85,13 @@ public class Login extends JFrame {
 				login(name, address, port);
 			}
 		});
-		btnLogin.setBounds(91, 311, 117, 29);
+		btnLogin.setBounds(88, 246, 117, 29);
 		contentPane.add(btnLogin);
 	}
 
 	private void login(String name, String address, int port) {
 		dispose();
-		new Client(name, address, port);
+		new ClientWindow(name, address, port);
 	}
 
 	public static void main(String[] args) {
