@@ -16,9 +16,8 @@ public class Client {
 	private int port;
 	private InetAddress ip;
 	private Thread send;
-	
 	private int ID = -1;
-	
+
 	public Client(String name, String address, int port) {
 		this.name = name;
 		this.address = address;
@@ -28,15 +27,15 @@ public class Client {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getAddress() {
 		return address;
 	}
-	
+
 	public int getPort() {
 		return port;
 	}
-	
+
 	public boolean openConnection(String address) {
 		try {
 			socket = new DatagramSocket();
@@ -76,11 +75,23 @@ public class Client {
 		};
 		send.start();
 	}
-	
-	public void setID(int id) {
-		this.ID = id;
+
+	public void close() {
+		new Thread() {
+			public void run() {
+				synchronized (socket) {
+					socket.close();
+				}
+			}
+		}.start();
 	}
+
+	public void setID(int ID) {
+		this.ID = ID;
+	}
+
 	public int getID() {
 		return ID;
 	}
+
 }
